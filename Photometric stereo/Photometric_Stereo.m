@@ -6,7 +6,7 @@ clear all
 % images:
 
 baseDir = 'Inputs/cat/Objects';  % Specify your folder path: change the fold name for different objects
-%Objects : cat,frog,hippo,lizard,pig,scholar,turtle
+%Objects : cat,frog
 
 %number of files :
 
@@ -29,7 +29,7 @@ I = flipud(I);% put upside down because images in png and their storage in matla
 
 %Compute shadow to remove parts of image that aren't the object
 
-threshold = 200.0;%change threshold for different lighting intesities and objects. Use imshow(flipud(shadow)) to check if the contours are well defined or no.
+threshold = 100.0;%change threshold for different lighting intesities and objects. Use imshow(flipud(shadow)) to check if the contours are well defined or no.
 shadow = (max(I,[],3)>threshold);
 imshow(flipud(shadow));
 
@@ -84,4 +84,5 @@ surf(-Z, 'EdgeColor', 'None', 'FaceColor', [0.5 0.5 0.5]); % we display the oppo
 axis equal; camlight;
 view(-75, 30);
 title("Depth map")
+
 clear n
